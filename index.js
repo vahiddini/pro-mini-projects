@@ -8,10 +8,11 @@ const FILE_PATH = "./data.json";
 
 const makeCommit = (n) => {
   if (n === 0) return  simpleGit().push();
+  const year = random.int(0, 3);
   const day = random.int(0, 7);
-  const week = random.int(0, 50);
+  const week = random.int(0, 20);
   const DATE = moment()
-    .subtract(1, "y")    // set year reverse, example: 4 == 2019
+    .subtract(year, "y")    // set year reverse, example: 4 == 2019
     .add(day, "d")         // add day to this moment, example: day = 2 --> add(1, "d") == day = 3
     .add(week, "w")         // same as day, just add week of month
     .format();
@@ -28,4 +29,4 @@ const makeCommit = (n) => {
   });
 };
 
-makeCommit(20);
+makeCommit(200);
